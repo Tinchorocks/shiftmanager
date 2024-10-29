@@ -1,0 +1,28 @@
+<% content_for :title, "Sign In" %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'sign-in form-signin' }) do |f| %>
+  <%= image_tag "/logo.png", class: 'mb-4 logo' %>
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+  <%= render "layouts/alerts" %>
+
+  <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Enter email', autocomplete: "email" %>
+  <%= f.password_field :password, class: 'form-control', placeholder: 'Enter password', autocomplete: "current-password" %>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="checkbox mb-3">
+      <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me, class: 'form-check-input' %>
+        Remember me
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= button_tag 'Submit', class: 'btn btn-lg btn-primary btn-block login-submit-btn', type: :submit%>
+
+  <div class="mt-5 mb-3 text-muted">
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>
+
+

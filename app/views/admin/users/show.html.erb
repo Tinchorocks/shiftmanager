@@ -1,0 +1,40 @@
+<% content_for :title, "User ##{@user.id}" %>
+
+<main>
+  <div class="header">
+    <div class="row">
+      <div class="page-title">
+        <h1>User</h1>
+      </div>
+      <div class="page-actions">
+        <%= link_to new_admin_user_path, class: "btn btn-success d-flex align-items-center" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          <span>
+            New Shift
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td><b>Name</b></td>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <td><b>Email</b></td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td><b>Employee ID</b></td>
+        <td><%= @user.employee_id %></td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<%= link_to sanitize("&larr; Back to users"), admin_users_path %>

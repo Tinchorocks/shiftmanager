@@ -1,0 +1,15 @@
+<% content_for :title, "New User" %>
+
+<main>
+  <div class="header">
+    <div class="row">
+      <div class="page-title">
+        <h1>New user</h1>
+      </div>
+      <div class="page-actions"></div>
+    </div>
+  </div>
+  <%= render "form", user: @user, url: admin_users_path %>
+</main>
+
+<%= link_to sanitize("&larr; Back to users"), admin_users_path %>

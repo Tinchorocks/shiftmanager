@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: postgres:17
+    volumes:
+      - psql:/var/lib/postgresql/data
+    user: postgres
+    environment:
+      - POSTGRES_DB=shiftmanager_production
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Zwy4W_gLA^
+  challenge:
+    build: .
+    command: ./script/start_prod.sh
+    depends_on:
+      - db
+    volumes:
+      - .:/challenge
+      - bundle_path:/bundle
+    environment:
+      - DB_HOST=db
+      - DB_NAME=shiftmanager_production
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=Zwy4W_gLA^
+      - BUNDLE_PATH=/bundle/vendor
+      - RAILS_ENV=production
+      - DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+    ports:
+      - "3000:3000"
+
+volumes:
+  bundle_path:
+    driver: local
+  psql:
+    driver: local

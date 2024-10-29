@@ -1,0 +1,45 @@
+<% content_for :title, "Users" %>
+
+<main>
+  <div class="header">
+    <div class="row">
+      <div class="page-title">
+        <h1>Users</h1>
+      </div>
+      <div class="page-actions">
+        <%= link_to new_admin_user_path, class: "btn btn-success d-flex align-items-center" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          <span>
+            New User
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% if @users.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Employee ID</th>
+          <th scope="col" class="table-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-primary" role="alert">
+          No users found. Please create one to access this feature.
+        </div>
+      </div>
+    </div>
+  <% end %>
+</main>

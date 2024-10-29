@@ -1,0 +1,40 @@
+version: '3'
+services:
+  db:
+    image: postgres:17
+    container_name: shiftmanager_db
+    volumes:
+      - psql:/var/lib/postgresql/data
+    command: "postgres -c 'max_connections=500'"
+    user: postgres
+    environment:
+      - POSTGRES_DB=shiftmanager_development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Zwy4W_gLA^
+    ports:
+      - "5432:5432"
+  challenge:
+    build: 
+      dockerfile: development.Dockerfile
+    command: ./script/start_dev.sh
+    container_name: shiftmanager_rails
+    depends_on:
+      - db
+    volumes:
+      - .:/challenge
+      - bundle_path:/bundle
+    environment:
+      - DB_HOST=db
+      - DB_NAME=shiftmanager_development
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=Zwy4W_gLA^
+      - BUNDLE_PATH=/bundle/vendor
+      - EDITOR=vim --wait
+    ports:
+      - "3000:3000"
+
+volumes:
+  bundle_path:
+    driver: local
+  psql:
+    driver: local

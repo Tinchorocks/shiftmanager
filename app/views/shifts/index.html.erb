@@ -1,0 +1,47 @@
+<% content_for :title, "Shifts" %>
+
+<main>
+  <div class="header">
+    <div class="row">
+      <div class="page-title">
+        <h1>Shifts</h1>
+      </div>
+      <div class="page-actions">
+        <% if can? :create, Shift %>
+          <%= link_to new_shift_path, class: "btn btn-success d-flex align-items-center" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <span>
+              New Shift
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% if @shifts.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Employee</th>
+          <th scope="col" class="text-center">Start At</th>
+          <th scope="col" class="text-center">Ends At</th>
+          <th scope="col" class="table-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <%= render @shifts %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-primary" role="alert">
+          You dont have any shifts at the moment.
+        </div>
+      </div>
+    </div>
+  <% end %>
+</main>

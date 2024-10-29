@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: postgres:17
+    volumes:
+      - psql:/var/lib/postgresql/data
+    user: postgres
+    environment:
+      - POSTGRES_DB=shiftmanager_test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Zwy4W_gLA^
+  challenge:
+    build: .
+    command: ./script/start_dev.sh
+    depends_on:
+      - db
+    volumes:
+      - .:/challenge
+      - bundle_path:/bundle
+    environment:
+      - DB_HOST=db
+      - DB_NAME=shiftmanager_test
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=Zwy4W_gLA^
+      - BUNDLE_PATH=/bundle/vendor
+      - EDITOR=vim --wait
+    ports:
+      - "3000:3000"
+
+volumes:
+  bundle_path:
+    driver: local
+  psql:
+    driver: local

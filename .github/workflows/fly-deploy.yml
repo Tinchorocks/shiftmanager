@@ -1,0 +1,18 @@
+# See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
+
+name: Fly Deploy
+on:
+  push:
+    branches:
+      - deployment-test
+jobs:
+  deploy:
+    name: Deploy app
+    runs-on: ubuntu-latest
+    concurrency: deploy-group    # optional: ensure only one action runs at a time
+    steps:
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: "FlyV1 fm2_lJPECAAAAAAAB8A9xBB9c9im/cKy2TL8oNfApw7kwrVodHRwczovL2FwaS5mbHkuaW8vdjGWAJLOAAzxxh8Lk7lodHRwczovL2FwaS5mbHkuaW8vYWFhL3YxxDwBm4lyLlYiQybrl3bAX7t6QH4QS4n+YqD0Wb0Dm3WD6udWVz6zaq7mo9xExGspC87yrZ99ZNVE2HdIpmjETqT+tI8xg8HN4+A4uY+t0dQPlj5LCKwaiIRrJx56F49PnqN0S31iCFrJW8i3yvd6c/+++NR+omWHYxRtaSUTztccTGFgBazA/MC/sfHIjA2SlAORgc4ASru4HwWRgqdidWlsZGVyH6J3Zx8BxCDGbYHwJAJ35v3KCjfU4T6lbnNSik2FwMD5XoDw3+3Qkw==,fm2_lJPETqT+tI8xg8HN4+A4uY+t0dQPlj5LCKwaiIRrJx56F49PnqN0S31iCFrJW8i3yvd6c/+++NR+omWHYxRtaSUTztccTGFgBazA/MC/sfHIjMQQUe6eY7o7VXdVlPBw4YTLd8O5aHR0cHM6Ly9hcGkuZmx5LmlvL2FhYS92MZgEks5nDWDhzwAAAAE9oPbvF84ADIwBCpHOAAyMAQzEEPp7SuPhE0m9d2mtXNn70D7EIIrAX+wziDKXaDHSA4Cxi0ROGzQ1tZQx8ShsmlS2+Uh/"
