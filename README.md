@@ -1,8 +1,8 @@
-# ShiftManager v.1 (by Martin)
+# ShiftManager v.1
 
 ## Project Overview
 
-Rails application that supports native iOS/Android apps through a REST API and features a web-based scheduling/admin system. 
+Rails application that features a web-based scheduling/admin system. 
 
 [Stack Used](Stack.md).
 
