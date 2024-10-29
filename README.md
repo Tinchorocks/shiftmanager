@@ -1,4 +1,4 @@
-# ShiftManager v.1
+# ShiftManager 
 
 ## Project Overview
 
