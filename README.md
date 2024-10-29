@@ -48,29 +48,16 @@ fly deploy
 
 You can find the app running [here](https://shiftmanager.fly.dev/).
 
-## Assumptions and decisions made during development
-
-### Assumptions
-
-- Users employee_id is a string (since i dont know exactly the format i would assume it could contain more than just numbers).
-- Users employee_id is a required field for employees. 
-- Users with role :scheduler can see a list of users (in /admin/users) without seeing themselves. Maybe i should have removed the other schedulers from the list, too.
-- When a user acknowledge a shift, it can rollback the change (unless an scheduler does it for it).
-
-## Decissions
-
-- I've decided to add a namespace :admin to the /users views (so its /admin/users) because it was faster to implement without checking for any conflicts with the devise path (in order to finish this on time).
-
 ## TODO
 
 Pending items for a future version:
-- Allow user to add notes (forgot to do this when adding the bonus features and i've only added the "acknowledge" feature). Notes exists but are only available for schedulers.
-- Add sorting to both /admin/users and /shifts.
-- Add filtering to both /admin/users and /shifts.
-- Add pagination to both /admin/users and /shifts.
-- Add more integration specs.
-- Add feature tests using selenium.
-- Add the ability to create/modify roles along with permissions (now its hardcoded in the seeds).
-- Add shared contexts to specs to improve readability.
-- Handle strings in views as translations with i18n.
-- Add rubocop or any other code linter.
+* [ ] Allow user to add notes (forgot to do this when adding the bonus features and i've only added the "acknowledge" feature). Notes exists but are only available for schedulers.
+* [ ] Add sorting to both /admin/users and /shifts.
+* [ ] Add filtering to both /admin/users and /shifts.
+* [ ] Add pagination to both /admin/users and /shifts.
+* [ ] Add more integration specs.
+* [ ] Add feature tests using selenium.
+* [ ] Add the ability to create/modify roles along with permissions (now its hardcoded in the seeds).
+* [ ] Add shared contexts to specs to improve readability.
+* [ ] Handle strings in views as translations with i18n.
+* [ ] Add rubocop or any other code linter.
