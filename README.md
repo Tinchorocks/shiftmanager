@@ -36,17 +36,7 @@ bundle exec rspec
 
 ## Deployment instructions 
 
-This project uses Fly.io to deploy.
-
-[How to run Fly on Rails app](https://www.fastruby.io/blog/deploying-rails-on-fly.html)
-
-When you're all set you can deploy the app with only one command.
-
-```ruby
-fly deploy
-```
-
-You can find the app running [here](https://shiftmanager.fly.dev/).
+Note: deployment for this app was removed since fly.io consumes resources ($$). I might add a Heroku free deploy later. 
 
 ## TODO
 
