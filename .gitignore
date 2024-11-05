@@ -38,3 +38,7 @@
 
 # Coverage
 /coverage/
+
+# RubyMine settings
+.idea
+.idea/
