@@ -36,7 +36,8 @@ bundle exec rspec
 
 ## Deployment instructions 
 
-Note: deployment for this app was removed since fly.io consumes resources ($$). I might add a Heroku free deploy later. 
+Note: deployment for this app was removed since fly.io consumes resources ($$). 
+I might add a Heroku free deploy later. 
 
 ## TODO
 
