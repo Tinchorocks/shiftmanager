@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.0.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use postgresql as the database for Active Record
@@ -52,8 +52,8 @@ end
 
 group :test do
   # Testing
-  gem "rspec-rails", "~> 7.1.1"
-  gem "factory_bot_rails", "~> 6.4.4"
+  gem "rspec-rails", "~> 8.0.1"
+  gem "factory_bot_rails", "~> 6.5.0"
   gem "rails-controller-testing"
   gem "capybara"
   gem "selenium-webdriver"
