@@ -53,7 +53,7 @@ end
 group :test do
   # Testing
   gem "rspec-rails", "~> 8.0.2"
-  gem "factory_bot_rails", "~> 6.5.0"
+  gem "factory_bot_rails", "~> 6.5.1"
   gem "rails-controller-testing"
   gem "capybara"
   gem "selenium-webdriver"
