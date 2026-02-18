@@ -63,7 +63,7 @@ group :test do
 end
 
 # Authentication
-gem "devise", "~> 4.9.4"
+gem "devise", "~> 5.0.2"
 
 # Roles
 gem "rolify", "~> 6.0.1"
